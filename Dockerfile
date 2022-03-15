@@ -8,3 +8,6 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /spring_web
 COPY Gemfile Gemfile.lock /spring_web/
 RUN gem install bundler:2.2.27 && bundle install
+
+
+

@@ -1,23 +1,26 @@
 version: "3"
-
-volumes:
-  db-data:
   
 services: 
-  web: 
-    build: .
-    ports: 
-      - "3000:3000"
+  app: 
+    build: 
+      context: .
+    # command: bundle exec puma -C config/puma.rb
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b '0.0.0.0'"
     volumes: 
       - ".:/spring_web"
+      - "public-data:/spring_web/public"
+      - "tmp-data:/spring_web/tmp"
+      - "log-data:/spring_web/log"
+    ports: 
+      - "3000:3000"
     environment: 
       - "DATABASE_PASSWORD=password"
     tty: true
     stdin_open: true
     depends_on: 
       - db
-    links: 
-      - db
+    networks:
+      - spring_web_network
   
   db:
     image: mysql:5.7
@@ -27,6 +30,31 @@ services:
       - "db-data:/var/lib/mysql"
     environment:
       - "MYSQL_ROOT_PASSWORD=password"
+    networks:
+      - spring_web_network
+    
 
+  web:
+    build: 
+      context: ./nginx_docker
+    volumes: 
+      - "public-data:/spring_web/public"
+      - "tmp-data:/spring_web/tmp"
+    ports: 
+      - "80:80"
+    depends_on: 
+      - app
+    networks:
+      - spring_web_network
+     
+volumes:
+  db-data:
+  public-data:
+  tmp-data:
+  log-data:
+
+networks: 
+  spring_web_network:
+    external: true
       
      
