@@ -51,6 +51,8 @@ test:
 #
 production:
   <<: *default
-  database: spring_web_production
-  username: spring_web
-  password: <%= ENV['SPRING_WEB_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
