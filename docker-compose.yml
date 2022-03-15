@@ -18,7 +18,7 @@ services:
     tty: true
     stdin_open: true
     # depends_on: 
-      - db
+    #  - db
     networks:
       - spring_web_network
   
