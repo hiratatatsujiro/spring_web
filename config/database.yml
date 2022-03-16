@@ -52,6 +52,7 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_DATABASE'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
   adapter: mysql2
   encoding: utf8
   username: <%= ENV['DATABASE_USERNAME'] %>
