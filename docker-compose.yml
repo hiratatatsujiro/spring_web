@@ -4,7 +4,7 @@ services:
   app: 
     build: 
       context: .
-    # command: bundle exec puma -C config/puma.rb -e production
+    #command: bundle exec puma -C config/puma.rb
     command: "bundle exec puma -C config/puma.rb -e production"
     volumes: 
       - ".:/spring_web"
@@ -46,15 +46,15 @@ services:
     networks:
       - spring_web_network
      
-  webpacker:
-    build: .
-    volumes:
-      - .:/spring_web
-    command: ./bin/webpack-dev-server
-    environment:
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-    ports:
-      - "3035:3035"
+  # webpacker:
+  #   build: .
+  #   volumes:
+  #     - .:/spring_web
+  #   command: ./bin/webpack-dev-server
+  #   environment:
+  #     WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+  #   ports:
+  #     - "3035:3035"
 
 volumes:
   db-data:
