@@ -12,7 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-!/tmp/sockets
+!/tmp/sockets/puma.sock
 !/tmp/pid/.keep
 !/tmp/sockets/.keep
 
