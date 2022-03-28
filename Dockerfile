@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     yarn 
 WORKDIR /spring_web
 COPY Gemfile Gemfile.lock /spring_web/
-RUN gem install bundler:2.1.4 && bundle install
+RUN gem install bundler && bundle install
 
 
 
