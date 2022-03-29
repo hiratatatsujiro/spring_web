@@ -5,7 +5,7 @@ services:
     build: 
       context: .
     #command: bundle exec puma -C config/puma.rb
-    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -e production"
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -e production"
     volumes: 
       - ".:/spring_web"
       - "public-data:/spring_web/public"
