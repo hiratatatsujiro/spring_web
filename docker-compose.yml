@@ -64,6 +64,6 @@ volumes:
 
 networks: 
   spring_web_network:
-    external: true
-      
+#    external: true
+
      
