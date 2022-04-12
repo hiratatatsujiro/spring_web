@@ -11,8 +11,8 @@ services:
       - "public-data:/spring_web/public"
       - "tmp-data:/spring_web/tmp"
       - "log-data:/spring_web/log"
-    ports: 
-      - "3000:3000"
+    # ports: 
+    #   - "3000:3000"
     environment: 
       - "DATABASE_PASSWORD=friendship3312T"
     tty: true
@@ -64,6 +64,6 @@ volumes:
 
 networks: 
   spring_web_network:
-#    external: true
-
+    external: true
+      
      
