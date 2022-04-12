@@ -4,7 +4,7 @@ services:
   app: 
     build: 
       context: .
-    #command: bundle exec puma -C config/puma.rb
+    # command: bundle exec puma -C config/puma.rb
     command: bundle exec puma -C config/puma.rb -e production
     volumes: 
       - ".:/spring_web"
@@ -14,11 +14,11 @@ services:
     ports: 
       - "3000:3000"
     environment: 
-      - "DATABASE_PASSWORD=password"
+      - "DATABASE_PASSWORD=friendship3312T"
     tty: true
     stdin_open: true
-    #depends_on: 
-    #  - db
+    # depends_on: 
+    #   - db
     networks:
       - spring_web_network
   
@@ -29,7 +29,7 @@ services:
   #   volumes: 
   #     - "db-data:/var/lib/mysql"
   #   environment:
-  #     - "MYSQL_ROOT_PASSWORD=password"
+  #     - "MYSQL_ROOT_PASSWORD=friendship3312T"
   #   networks:
   #     - spring_web_network
     
