@@ -40,7 +40,7 @@ services:
       - "public-data:/spring_web/public"
       - "tmp-data:/spring_web/tmp"
     ports: 
-      - "80:80"
+      - "81:80"
     depends_on: 
       - app
     networks:
